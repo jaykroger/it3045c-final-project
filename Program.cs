@@ -15,14 +15,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 // Database Contexts
-builder.Services.AddDbContext<CourseEnrollmentsContext>(options => 
-    options.UseSqlServer(builder.Configuration.GetConnectionString("CourseEnrollmentsContext")));
+builder.Services.AddDbContext<CoursesContext>(options => 
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CoursesContext")));
 
-builder.Services.AddDbContext<FavoriteTVShowsContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("FavoriteTVShowsContext")));
+builder.Services.AddDbContext<TVShowsContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TVShowsContext")));
 
-builder.Services.AddScoped<CourseEnrollmentsContextDAO>();
-builder.Services.AddScoped<FavoriteTVShowsContextDAO>();
+builder.Services.AddScoped<CoursesContextDAO>();
+builder.Services.AddScoped<TVShowsContextDAO>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

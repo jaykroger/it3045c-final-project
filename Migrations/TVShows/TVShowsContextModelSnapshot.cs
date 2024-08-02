@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace IT3045C_Final_Project.Migrations.FavoriteTVShows
+namespace IT3045C_Final_Project.Migrations.TVShows
 {
-    [DbContext(typeof(FavoriteTVShowsContext))]
-    partial class FavoriteTVShowsContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(TVShowsContext))]
+    partial class TVShowsContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
@@ -22,34 +22,36 @@ namespace IT3045C_Final_Project.Migrations.FavoriteTVShows
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("IT3045C_Final_Project.Models.FavoriteTVShow", b =>
+            modelBuilder.Entity("IT3045C_Final_Project.Models.TVShow", b =>
                 {
-                    b.Property<int?>("StudentID")
+                    b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("StudentID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
                     b.Property<string>("Genre")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("NumSeasons")
+                    b.Property<int>("NumSeasons")
                         .HasColumnType("int");
 
                     b.Property<DateOnly>("ReleaseDate")
                         .HasColumnType("date");
 
                     b.Property<string>("ShowName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("StudentID");
+                    b.HasKey("ID");
 
-                    b.ToTable("FavoriteTVShows");
+                    b.ToTable("TVShows");
 
                     b.HasData(
                         new
                         {
-                            StudentID = 14981719,
+                            ID = 1,
                             Genre = "Drama",
                             NumSeasons = 4,
                             ReleaseDate = new DateOnly(2018, 6, 3),
@@ -57,7 +59,7 @@ namespace IT3045C_Final_Project.Migrations.FavoriteTVShows
                         },
                         new
                         {
-                            StudentID = 14981720,
+                            ID = 2,
                             Genre = "Crime",
                             NumSeasons = 4,
                             ReleaseDate = new DateOnly(2015, 6, 24),
