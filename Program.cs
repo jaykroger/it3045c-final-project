@@ -1,8 +1,19 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+using IT3045C_Final_Project.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+//Datbase contents and connection string
+builder.Services.AddDbContext<FavoriteFoodsContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("FavoriteFoodsContext")));
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
