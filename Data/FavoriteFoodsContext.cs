@@ -15,6 +15,6 @@ namespace IT3045C_Final_Project.Data
                 new FavoriteFoods { Id = 12345678, FavBreakfast = "Toast", FavLunch = "BLT", FavSnack = "Chips", FavDinner = "Hamburgers" });
         }
 
-        public DbSet<FavoriteFoods> FavoriteFoods { get; set; }
+        public DbSet<FavoriteFoods> FavoriteFood { get; set; }
     }
 }
