@@ -1,6 +1,6 @@
 @IT3045C_Final_Project_HostAddress = http://localhost:5240
 
-GET {{IT3045C_Final_Project_HostAddress}}/weatherforecast/
+GET {{IT3045C_Final_Project_HostAddress}}/CourseEnrollments/
 Accept: application/json
 
 ###
