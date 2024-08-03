@@ -14,7 +14,7 @@ namespace IT3045C_Final_Project.Data
 
         public int? AddFood(FavoriteFoods personsFood)
         {
-            var personsFoods = _context.FavoriteFood.Where(x => x.Id.Equals(personsFood.Id) && x.FavSnack.Equals(personsFood.FavSnack)).FirstOrDefault();
+            var personsFoods = _context.FavoriteFoods.Where(x => x.Id.Equals(personsFood.Id) && x.FavSnack.Equals(personsFood.FavSnack)).FirstOrDefault();
 
             if (personsFoods == null)
             {
@@ -23,7 +23,7 @@ namespace IT3045C_Final_Project.Data
 
             try
             {
-                _context.FavoriteFood.Add(personsFood);
+                _context.FavoriteFoods.Add(personsFood);
                 _context.SaveChanges();
                 return 1;
             }
@@ -36,12 +36,12 @@ namespace IT3045C_Final_Project.Data
         //implements IFoodsContext
         public List<FavoriteFoods> GetAllFoods()
         {
-           return _context.FavoriteFood.ToList();
+           return _context.FavoriteFoods.OrderBy(x => x.Id).ToList();
         }
 
         public FavoriteFoods GetFoodById(int id)
         {
-            return _context.FavoriteFood.Where(x => x.Id.Equals(id)).FirstOrDefault();
+            return _context.FavoriteFoods.Where(x => x.Id.Equals(id)).FirstOrDefault();
         }
 
         public int? RemoveFoodById(int id)
@@ -54,7 +54,7 @@ namespace IT3045C_Final_Project.Data
             }
             try
             {
-                _context.FavoriteFood.Remove(result);
+                _context.FavoriteFoods.Remove(result);
                 _context.SaveChanges();
                 return 1;
             }
@@ -80,7 +80,7 @@ namespace IT3045C_Final_Project.Data
 
             try
             {
-                _context.FavoriteFood.Update(personsFoodToUpdate);
+                _context.FavoriteFoods.Update(personsFoodToUpdate);
                 _context.SaveChanges();
                 return 1;
             }

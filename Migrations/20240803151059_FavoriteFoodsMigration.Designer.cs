@@ -10,6 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace IT3045C_Final_Project.Migrations
 {
+    [DbContext(typeof(FavoriteFoodsContext))]
+    [Migration("20240803151059_FavoriteFoodsMigration")]
     partial class FavoriteFoodsMigration
     {
         /// <inheritdoc />

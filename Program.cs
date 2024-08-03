@@ -4,7 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 using IT3045C_Final_Project.Data;
 using IT3045C_Final_Project.Interfaces;
-using IT3045C_Final_Project.Controllers;
+using IT3045C_Final_Project.Models;
+using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,7 +17,9 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<FavoriteFoodsContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("FavoriteFoodsContext")));
 
+
 builder.Services.AddScoped<FoodsContextDAO>();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -24,6 +27,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerDocument();
 
 builder.Services.AddScoped<FoodsContextDAO>();
+builder.Services.AddScoped<FavoriteFoods>();
 
 
 
