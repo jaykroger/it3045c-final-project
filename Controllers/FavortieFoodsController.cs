@@ -24,6 +24,12 @@ namespace IT3045C_Final_Project.Controllers
         {
             return Ok(_context.FavoriteFoods.ToList());
         }
+
+        [HttpGet("id")]
+        public IActionResult GetById(int? id)
+        {
+            return Ok(_context.FavoriteFoods.FirstOrDefault(x => x.Id == id));
+        }
     }
 
 }
