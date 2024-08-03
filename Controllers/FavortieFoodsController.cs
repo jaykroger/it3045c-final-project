@@ -13,9 +13,9 @@ namespace IT3045C_Final_Project.Controllers
 
         private readonly ILogger<FavortieFoodsController> _logger;
 
-        private readonly IFoodsContextDAO _context;
+        private readonly FoodsContextDAO _context;
 
-        public FavortieFoodsController(ILogger<FavortieFoodsController> logger, IFoodsContextDAO context)
+        public FavortieFoodsController(ILogger<FavortieFoodsController> logger, FoodsContextDAO context)
         {
             _logger = logger;
             _context = context;
