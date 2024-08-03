@@ -7,15 +7,15 @@ namespace IT3045C_Final_Project.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class FavortieFoodsController : ControllerBase
+    public class FavoriteFoodsController : ControllerBase
     {
         private static readonly int id;
 
-        private readonly ILogger<FavortieFoodsController> _logger;
+        private readonly ILogger<FavoriteFoodsController> _logger;
 
         private readonly FoodsContextDAO _context;
 
-        public FavortieFoodsController(ILogger<FavortieFoodsController> logger, FoodsContextDAO context)
+        public FavoriteFoodsController(ILogger<FavoriteFoodsController> logger, FoodsContextDAO context)
         {
             _logger = logger;
             _context = context;

@@ -6,14 +6,14 @@ namespace IT3045C_Final_Project.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class CourseEnrollmentsController : ControllerBase
+    public class CoursesController : ControllerBase
     {
         private static readonly int id;
 
-        private readonly ILogger<CourseEnrollmentsController> _logger;
+        private readonly ILogger<CoursesController> _logger;
         private readonly CoursesContextDAO _context;
 
-        public CourseEnrollmentsController(ILogger<CourseEnrollmentsController> logger, CoursesContextDAO context)
+        public CoursesController(ILogger<CoursesController> logger, CoursesContextDAO context)
         {
             _logger = logger;
             _context = context;

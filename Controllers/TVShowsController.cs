@@ -7,14 +7,14 @@ namespace IT3045C_Final_Project.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class FavoriteTVShowsController : ControllerBase
+    public class TVShowsController : ControllerBase
     {
         private static readonly int id;
 
-        private readonly ILogger<FavoriteTVShowsController> _logger;
+        private readonly ILogger<TVShowsController> _logger;
         private readonly TVShowsContextDAO _context;
 
-        public FavoriteTVShowsController(ILogger<FavoriteTVShowsController> logger, TVShowsContextDAO context)
+        public TVShowsController(ILogger<TVShowsController> logger, TVShowsContextDAO context)
         {
             _logger = logger;
             _context = context;

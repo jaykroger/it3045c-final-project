@@ -12,9 +12,9 @@ namespace IT3045C_Final_Project.Controllers
     {
 
         private readonly ILogger<TeamMembersController> _logger;
-        ITeamMembersContextDAO _context;
+        TeamMembersContextDAO _context;
 
-        public TeamMembersController(ILogger<TeamMembersController> logger, ITeamMembersContextDAO context)
+        public TeamMembersController(ILogger<TeamMembersController> logger, TeamMembersContextDAO context)
         {
             _logger = logger;
             _context = context;
