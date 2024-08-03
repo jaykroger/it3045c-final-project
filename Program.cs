@@ -12,15 +12,25 @@ var builder = WebApplication.CreateBuilder(args);
 // API Controllers
 builder.Services.AddControllers();
 
-//Datbase contexts and connection string
-builder.Services.AddDbContext<FavoriteFoodsContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("FavoriteFoodsContext")));
 
+//Database contexts and connection string
 builder.Services.AddDbContext<TeamMembersContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("TeamMembersContext")));
 
-builder.Services.AddScoped<FoodsContextDAO>();
+builder.Services.AddDbContext<FavoriteFoodsContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("FavoriteFoodsContext")));
+
+builder.Services.AddDbContext<CoursesContext>(options => 
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CoursesContext")));
+
+builder.Services.AddDbContext<TVShowsContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TVShowsContext")));
+
+// Data Access Objects
 builder.Services.AddScoped<TeamMembersContextDAO>();
+builder.Services.AddScoped<FoodsContextDAO>();
+builder.Services.AddScoped<CoursesContextDAO>();
+builder.Services.AddScoped<TVShowsContextDAO>();
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
