@@ -1,4 +1,5 @@
 using IT3045C_Final_Project.Data;
+using IT3045C_Final_Project.Interfaces;
 using IT3045C_Final_Project.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,9 +11,9 @@ namespace IT3045C_Final_Project.Controllers
     {
         private readonly ILogger<FavortieFoodsController> _logger;
 
-        private readonly FavoriteFoodsContext _context;
+        private readonly IFoodsContextDAO _context;
 
-        public FavortieFoodsController(ILogger<FavortieFoodsController> logger, FavoriteFoodsContext context)
+        public FavortieFoodsController(ILogger<FavortieFoodsController> logger, IFoodsContextDAO context)
         {
             _logger = logger;
             _context = context;
@@ -22,7 +23,36 @@ namespace IT3045C_Final_Project.Controllers
         [HttpGet]
         public IActionResult Get() 
         {
-            return Ok(_context.FavoriteFoods.ToList());
+            return Ok(_context.GetAllFoods());
+        }
+
+        [HttpGet("id")]
+        public IActionResult Get(int id)
+        {
+            var food = _context.GetFoodsById(id);
+
+            if (food == null)
+            {
+                return NotFound(id);
+            }
+                
+            return Ok(_context.GetFoodsById(id));
+        }
+
+        [HttpDelete("id")]
+        public IActionResult Delete(int id)
+        {
+           
+            var food = _context.RemoveFoodById(id);
+            if (food == null)
+            {
+                return NotFound(id);
+            }
+
+            return Ok();
+
+            
+
         }
     }
 
