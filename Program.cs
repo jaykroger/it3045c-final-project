@@ -7,6 +7,7 @@ using IT3045C_Final_Project.Interfaces;
 
 
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,6 +22,10 @@ builder.Services.AddDbContext<CourseEnrollmentsContext>(options =>
 builder.Services.AddDbContext<FavoriteTVShowsContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("FavoriteTVShowsContext")));
 
+
+builder.Services.AddDbContext<TeamMembersContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("TeamMembersContext")));
+
 builder.Services.AddScoped<CourseEnrollmentsContextDAO>();
 builder.Services.AddScoped<FavoriteTVShowsContextDAO>();
 
@@ -28,6 +33,10 @@ builder.Services.AddScoped<FavoriteTVShowsContextDAO>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddSwaggerDocument();
+
+
+
+builder.Services.AddScoped<ITeamMembersContextDAO, TeamMembersContextDAO>();
 
 
 var app = builder.Build();
